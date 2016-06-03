@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: testdb
+test:
+  <<: *default
+  database: tycoon_test
+production:
+  <<: *default
+  host: property-tycoon-db
+  user: tycoon
+  password: <%= ENV['DB_PASSWORD'] %>
+  database: tycoon
